@@ -8,11 +8,13 @@ set(PACKAGE_VERSION "1.0.0")
 
 macro(build_yaml_cpp)
   set(extra_cmake_args)
+  set(YAML_CXX_FLAGS ${CMAKE_CXX_FLAGS})
+
   if(DEFINED CMAKE_BUILD_TYPE)
     list(APPEND extra_cmake_args -DCMAKE_BUILD_TYPE=${CMAKE_BUILD_TYPE})
   endif()
   if(NOT WIN32)
-    list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=-std=c++14 -w")
+    list(APPEND YAML_CXX_FLAGS "-std=c++14 -w")
     list(APPEND extra_cmake_args "-DCMAKE_C_FLAGS=-w")
   endif()
 
@@ -20,6 +22,9 @@ macro(build_yaml_cpp)
   list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_TOOLS=OFF")
   list(APPEND extra_cmake_args "-DYAML_CPP_BUILD_CONTRIB=OFF")
   list(APPEND extra_cmake_args "-DBUILD_SHARED_LIBS=ON")
+  list(APPEND extra_cmake_args "-DCMAKE_C_COMPILER=${CMAKE_C_COMPILER}")
+  list(APPEND extra_cmake_args "-DCMAKE_CXX_COMPILER=${CMAKE_CXX_COMPILER}")
+  list(APPEND extra_cmake_args "-DCMAKE_CXX_FLAGS=${YAML_CXX_FLAGS}")
 
   if(WIN32 AND NOT ${CMAKE_VERBOSE_MAKEFILE})
     set(should_log ON)  # prevent warnings in Windows CI
