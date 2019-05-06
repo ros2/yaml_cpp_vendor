@@ -32,6 +32,10 @@ macro(build_yaml_cpp)
     set(should_log OFF)
   endif()
 
+  if(DEFINED CMAKE_TOOLCHAIN_FILE)
+    list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
+  endif()
+
   include(ExternalProject)
   # This specific version (past the current latest release of 0.5.3) is required to make
   # yaml-cpp relocatable, hopefully it is released again soon.
