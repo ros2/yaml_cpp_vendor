@@ -35,6 +35,9 @@ macro(build_yaml_cpp)
   endif()
 
   if(DEFINED CMAKE_TOOLCHAIN_FILE)
+    if(QNX)
+      set_qnx_external_project_options()
+    endif()
     list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
   endif()
 
