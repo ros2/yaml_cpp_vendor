@@ -84,7 +84,7 @@ if(NOT yaml-cpp_FOUND)
   endif()
   ament_environment_hooks(env_hook/yaml_cpp_vendor_library_path.dsv.in)
 else()
-  message(STATUS "Found yaml-cpp ${yaml-cpp_VERSION}")
+  message(STATUS "Found yaml-cpp ${yaml-cpp_VERSION} in path ${yaml-cpp_CONFIG}")
 endif()
 
 ament_package(
