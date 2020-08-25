@@ -65,7 +65,9 @@ macro(build_yaml_cpp)
   )
 endmacro()
 
+set(CMAKE_FIND_DEBUG_MODE TRUE)
 find_package(yaml-cpp 0.6 QUIET)
+set(CMAKE_FIND_DEBUG_MODE FALSE)
 if(NOT yaml-cpp_FOUND)
   build_yaml_cpp()
 
