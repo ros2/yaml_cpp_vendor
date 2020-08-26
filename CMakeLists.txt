@@ -65,9 +65,10 @@ macro(build_yaml_cpp)
   )
 endmacro()
 
-set(CMAKE_FIND_DEBUG_MODE TRUE)
-find_package(yaml-cpp 0.6 QUIET)
-set(CMAKE_FIND_DEBUG_MODE FALSE)
+# NO_CMAKE_PACKAGE_REGISTRY used to avoid finding the library downloaded in WORKSPACE B
+# when building workspace A.
+# This should only find a system installed yaml-cpp and thus the environment hook isn't needed.
+find_package(yaml-cpp 0.6 QUIET NO_CMAKE_PACKAGE_REGISTRY)
 if(NOT yaml-cpp_FOUND)
   build_yaml_cpp()
 
