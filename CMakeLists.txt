@@ -53,6 +53,7 @@ macro(build_yaml_cpp)
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/yaml_cpp_install
       ${extra_cmake_args}
+      -DCMAKE_EXPORT_NO_PACKAGE_REGISTRY=ON
       -Wno-dev
   )
 
@@ -68,7 +69,7 @@ endmacro()
 # NO_CMAKE_PACKAGE_REGISTRY used to avoid finding the library downloaded in WORKSPACE B
 # when building workspace A.
 # This should only find a system installed yaml-cpp and thus the environment hook isn't needed.
-find_package(yaml-cpp 0.6 QUIET NO_CMAKE_PACKAGE_REGISTRY)
+find_package(yaml-cpp 0.6 QUIET)
 if(NOT yaml-cpp_FOUND)
   build_yaml_cpp()
 
