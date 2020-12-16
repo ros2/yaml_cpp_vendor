@@ -39,14 +39,10 @@ macro(build_yaml_cpp)
   endif()
 
   include(ExternalProject)
-  # This specific version (past the current latest release of 0.5.3) is required to make
-  # yaml-cpp relocatable, hopefully it is released again soon.
-  # See: https://github.com/jbeder/yaml-cpp/pull/538
-  # Latest release fails to compile on recent visual studio (VS2017 v15.8.1)
-  # See: https://github.com/jbeder/yaml-cpp/pull/597
-  ExternalProject_Add(yaml_cpp-0f9a586
-    URL https://github.com/jbeder/yaml-cpp/archive/0f9a586ca1dc29c2ecb8dd715a315b93e3f40f79.zip
-    URL_MD5 ec76c27ebd07d5178cbe85b773df8e62
+
+  ExternalProject_Add(yaml_cpp-9a36242
+    URL https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.3.zip
+    URL_MD5 e8a182537af663cc45228f7064b2021c
     TIMEOUT 600
     LOG_CONFIGURE ${should_log}
     LOG_BUILD ${should_log}
