@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.5)
 
 project(yaml_cpp_vendor)
 
+option(FORCE_BUILD_VENDOR_PKG
+  "Build yaml-cpp from source, even if system-installed package is available"
+  OFF)
+
 find_package(ament_cmake REQUIRED)
 
 set(PACKAGE_VERSION "1.0.0")
@@ -69,7 +73,7 @@ endmacro()
 # when building workspace A.
 # This should only find a system installed yaml-cpp and thus the environment hook isn't needed.
 find_package(yaml-cpp 0.6 QUIET NO_CMAKE_PACKAGE_REGISTRY)
-if(NOT yaml-cpp_FOUND)
+if(FORCE_BUILD_VENDOR_PKG OR NOT yaml-cpp_FOUND)
   build_yaml_cpp()
 
   if(WIN32)
