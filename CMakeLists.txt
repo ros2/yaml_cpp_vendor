@@ -66,6 +66,7 @@ macro(build_yaml_cpp)
       ${CMAKE_CURRENT_BINARY_DIR}/yaml_cpp_install/
     DESTINATION
       ${CMAKE_INSTALL_PREFIX}/opt/yaml_cpp_vendor
+    USE_SOURCE_PERMISSIONS
   )
 endmacro()
 
