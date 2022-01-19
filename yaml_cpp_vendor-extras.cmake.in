@@ -18,3 +18,6 @@ set(yaml_cpp_vendor_LIBRARIES ${YAML_CPP_LIBRARIES})
 set(yaml_cpp_vendor_INCLUDE_DIRS ${YAML_CPP_INCLUDE_DIR})
 
 list(APPEND yaml_cpp_vendor_TARGETS yaml-cpp)
+if(WIN32)
+  set_target_properties(${YAML_CPP_LIBRARIES} PROPERTIES INTERFACE_COMPILE_DEFINITIONS YAML_CPP_DLL)
+endif()
