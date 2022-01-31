@@ -1,4 +1,4 @@
-find_package(yaml-cpp 0.6 QUIET)
+find_package(yaml-cpp QUIET)
 
 if(NOT yaml-cpp_FOUND)
   # add the local Modules directory to the modules path
