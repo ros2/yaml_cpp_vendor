@@ -7,6 +7,7 @@ option(FORCE_BUILD_VENDOR_PKG
   OFF)
 
 find_package(ament_cmake REQUIRED)
+ament_add_default_options()
 
 macro(build_yaml_cpp)
   set(extra_cmake_args)
