@@ -9,6 +9,8 @@ option(FORCE_BUILD_VENDOR_PKG
 find_package(ament_cmake REQUIRED)
 ament_add_default_options()
 
+cmake_policy(SET CMP0135 NEW)
+
 macro(build_yaml_cpp)
   set(extra_cmake_args)
 
@@ -46,6 +48,7 @@ macro(build_yaml_cpp)
     TIMEOUT 600
     LOG_CONFIGURE ${should_log}
     LOG_BUILD ${should_log}
+    DOWNLOAD_EXTRACT_TIMESTAMP false
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/yaml_cpp_install
       ${extra_cmake_args}
