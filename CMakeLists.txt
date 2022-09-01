@@ -6,6 +6,8 @@ option(FORCE_BUILD_VENDOR_PKG
   "Build yaml-cpp from source, even if system-installed package is available"
   OFF)
 
+cmake_policy(SET CMP0135 NEW)
+
 find_package(ament_cmake REQUIRED)
 ament_add_default_options()
 
@@ -60,8 +62,6 @@ macro(build_yaml_cpp)
       ${CMAKE_INSTALL_PREFIX}/opt/yaml_cpp_vendor
     USE_SOURCE_PERMISSIONS
   )
-
-  cmake_policy(SET CMP0135 NEW)
 endmacro()
 
 # NO_CMAKE_PACKAGE_REGISTRY used to avoid finding the library downloaded in WORKSPACE B
