@@ -50,7 +50,7 @@ macro(build_yaml_cpp)
     TIMEOUT 600
     LOG_CONFIGURE ${should_log}
     LOG_BUILD ${should_log}
-    DOWNLOAD_EXTRACT_TIMESTAMP true
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
     CMAKE_ARGS
       -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/yaml_cpp_install
       ${extra_cmake_args}
