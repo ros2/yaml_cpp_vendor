@@ -9,7 +9,7 @@ option(FORCE_BUILD_VENDOR_PKG
 find_package(ament_cmake REQUIRED)
 ament_add_default_options()
 
-cmake_policy(SET CMP0135 NEW)
+set(CMAKE_POLICY_DEFAULT_CMP0135 NEW)
 
 macro(build_yaml_cpp)
   set(extra_cmake_args)
