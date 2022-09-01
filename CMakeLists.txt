@@ -9,9 +9,6 @@ option(FORCE_BUILD_VENDOR_PKG
 find_package(ament_cmake REQUIRED)
 ament_add_default_options()
 
-set(CMAKE_POLICY_DEFAULT_CMP0135 NEW)
-cmake_policy(SET CMP0135 NEW)
-
 macro(build_yaml_cpp)
   set(extra_cmake_args)
 
@@ -40,6 +37,10 @@ macro(build_yaml_cpp)
 
   if(DEFINED CMAKE_TOOLCHAIN_FILE)
     list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
+  endif()
+
+  if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
+	cmake_policy(SET CMP0135 NEW)
   endif()
 
   include(ExternalProject)
