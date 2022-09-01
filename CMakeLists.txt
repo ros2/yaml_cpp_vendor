@@ -39,10 +39,6 @@ macro(build_yaml_cpp)
     list(APPEND extra_cmake_args "-DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}")
   endif()
 
-  if (CMAKE_VERSION VERSION_GREATER_EQUAL "3.24.0")
-	cmake_policy(SET CMP0135 NEW)
-  endif()
-
   include(ExternalProject)
   ExternalProject_Add(yaml_cpp-0.7.0
     URL https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.7.0.tar.gz
@@ -64,6 +60,8 @@ macro(build_yaml_cpp)
       ${CMAKE_INSTALL_PREFIX}/opt/yaml_cpp_vendor
     USE_SOURCE_PERMISSIONS
   )
+
+  cmake_policy(SET CMP0135 NEW)
 endmacro()
 
 # NO_CMAKE_PACKAGE_REGISTRY used to avoid finding the library downloaded in WORKSPACE B
