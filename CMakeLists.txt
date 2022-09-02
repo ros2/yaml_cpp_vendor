@@ -6,8 +6,6 @@ option(FORCE_BUILD_VENDOR_PKG
   "Build yaml-cpp from source, even if system-installed package is available"
   OFF)
 
-cmake_policy(SET CMP0135 NEW)
-
 find_package(ament_cmake REQUIRED)
 ament_add_default_options()
 
@@ -45,6 +43,7 @@ macro(build_yaml_cpp)
   ExternalProject_Add(yaml_cpp-0.7.0
     URL https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.7.0.tar.gz
     URL_MD5 74d646a3cc1b5d519829441db96744f0
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
     TIMEOUT 600
     LOG_CONFIGURE ${should_log}
     LOG_BUILD ${should_log}
