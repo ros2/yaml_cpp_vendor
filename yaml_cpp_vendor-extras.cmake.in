@@ -1,9 +1,5 @@
 find_package(yaml-cpp QUIET)
 
-if (POLICY CMP0135)
-  cmake_policy(SET CMP0135 OLD)
-endif()
-
 if(NOT yaml-cpp_FOUND)
   # add the local Modules directory to the modules path
   if(WIN32)
