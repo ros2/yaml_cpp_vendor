@@ -17,5 +17,8 @@ set(yaml_cpp_vendor_INCLUDE_DIRS ${YAML_CPP_INCLUDE_DIR})
 
 list(APPEND yaml_cpp_vendor_TARGETS yaml-cpp)
 if(WIN32)
+  # On Windows, yaml-cpp 0.7.0 requires that downstream consumers set YAML_CPP_DLL and
+  # not yaml_cpp_EXPORT in order to set dllimport properly.
+  # This behavior will likely change in future versions of yaml-cpp.
   set_target_properties(yaml-cpp PROPERTIES INTERFACE_COMPILE_DEFINITIONS YAML_CPP_DLL)
 endif()
