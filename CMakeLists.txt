@@ -19,7 +19,7 @@ endif()
 ament_vendor(yaml_cpp_vendor
   SATISFIED ${yaml-cpp_FOUND}
   VCS_URL https://github.com/jbeder/yaml-cpp.git
-  VCS_VERSION yaml-cpp-0.7.0
+  VCS_VERSION 0.8.0
   PATCHES patches
   CMAKE_ARGS
     "-DCMAKE_CXX_FLAGS=${YAML_CPP_CXX_FLAGS}"
