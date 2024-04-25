@@ -1,0 +1,46 @@
+diff --git a/src/emitterstate.h b/src/emitterstate.h
+index 8f379ca..d86c6c2 100644
+--- a/src/emitterstate.h
++++ b/src/emitterstate.h
+@@ -24,9 +24,16 @@ struct FmtScope {
+ struct GroupType {
+   enum value { NoType, Seq, Map };
+ };
++#if defined(__clang__)
++#pragma clang diagnostic push
++#pragma clang diagnostic ignored "-Wshadow"
++#endif
+ struct FlowType {
+   enum value { NoType, Flow, Block };
+ };
++#if defined(__clang__)
++#pragma clang diagnostic pop
++#endif
+
+ class EmitterState {
+  public:
+diff --git a/src/emitterutils.h b/src/emitterutils.h
+index 3a7d598..360eb6d 100644
+--- a/src/emitterutils.h
++++ b/src/emitterutils.h
+@@ -20,6 +20,10 @@ class ostream_wrapper;
+ namespace YAML {
+ class Binary;
+
++#if defined(__clang__)
++#pragma clang diagnostic push
++#pragma clang diagnostic ignored "-Wshadow"
++#endif
+ struct StringFormat {
+   enum value { Plain, SingleQuoted, DoubleQuoted, Literal };
+ };
+@@ -27,6 +31,9 @@ struct StringFormat {
+ struct StringEscaping {
+   enum value { None, NonAscii, JSON };
+ };
++#if defined(__clang__)
++#pragma clang diagnostic pop
++#endif
+
+ namespace Utils {
+ StringFormat::value ComputeStringFormat(const std::string& str,
