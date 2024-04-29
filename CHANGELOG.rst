@@ -2,8 +2,8 @@
 Changelog for package yaml_cpp_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+9.1.0 (2024-04-29)
+------------------
 * Removed warnigns (`#49 <https://github.com/ros2/yaml_cpp_vendor/issues/49>`_)
 * Contributors: Alejandro Hernández Cordero
 
