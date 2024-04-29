@@ -27,6 +27,7 @@ ament_vendor(yaml_cpp_vendor
     -DYAML_CPP_BUILD_TESTS:BOOL=OFF
     -DYAML_CPP_BUILD_TOOLS:BOOL=OFF
     -DYAML_BUILD_SHARED_LIBS:BOOL=${BUILD_SHARED_LIBS}
+  PATCHES patches
 )
 
 ament_package(
