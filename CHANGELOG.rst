@@ -2,6 +2,11 @@
 Changelog for package yaml_cpp_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Removed warnigns (`#49 <https://github.com/ros2/yaml_cpp_vendor/issues/49>`_)
+* Contributors: Alejandro Hernández Cordero
+
 9.0.0 (2024-04-16)
 ------------------
 * Upgrade to yaml-cpp 0.8.0 (`#48 <https://github.com/ros2/yaml_cpp_vendor/issues/48>`_)
