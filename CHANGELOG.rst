@@ -2,6 +2,11 @@
 Changelog for package yaml_cpp_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+9.2.0 (2025-04-25)
+------------------
+* Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#52 <https://github.com/ros2/yaml_cpp_vendor/issues/52>`_)
+* Contributors: Chris Lalancette
+
 9.1.0 (2024-04-29)
 ------------------
 * Removed warnigns (`#49 <https://github.com/ros2/yaml_cpp_vendor/issues/49>`_)
