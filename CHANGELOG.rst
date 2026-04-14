@@ -2,6 +2,13 @@
 Changelog for package yaml_cpp_vendor
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+9.2.1 (2026-04-14)
+------------------
+
+* Replace ament_vendor with cmake modules (`#56 <https://github.com/ros2/yaml_cpp_vendor/issues/56>`_)
+
+* Contributors: Alejandro Hernández Cordero
+
 9.2.0 (2025-04-25)
 ------------------
 * Remove CODEOWNERS and mirror-rolling-to-master workflow. (`#52 <https://github.com/ros2/yaml_cpp_vendor/issues/52>`_)
