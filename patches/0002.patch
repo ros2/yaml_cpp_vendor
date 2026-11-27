@@ -1,0 +1,23 @@
+diff --git a/yaml-cpp-config.cmake.in b/yaml-cpp-config.cmake.in
+index 799b9b4..e5ce1a8 100644
+--- a/yaml-cpp-config.cmake.in
++++ b/yaml-cpp-config.cmake.in
+@@ -17,6 +17,17 @@ set(YAML_CPP_SHARED_LIBS_BUILT "@PACKAGE_YAML_BUILD_SHARED_LIBS@")
+ include(@PACKAGE_CONFIG_EXPORT_DIR@/yaml-cpp-targets.cmake)
+ 
+ # These are IMPORTED targets created by yaml-cpp-targets.cmake
+-set(YAML_CPP_LIBRARIES "@EXPORT_TARGETS@")
++set(YAML_CPP_LIBRARIES yaml-cpp::yaml-cpp)
++
++# Protect against multiple inclusion, which would fail when already imported targets are added once more.
++if(NOT TARGET yaml-cpp)
++  add_library(yaml-cpp INTERFACE IMPORTED)
++  target_link_libraries(yaml-cpp INTERFACE yaml-cpp::yaml-cpp)
++  if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.17)
++    set_target_properties(yaml-cpp PROPERTIES
++      DEPRECATION "The target yaml-cpp is deprecated. Use the yaml-cpp::yaml-cpp target instead."
++    )
++  endif()
++endif()
+ 
+ check_required_components(@EXPORT_TARGETS@)
